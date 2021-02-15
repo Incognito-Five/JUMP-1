@@ -944,8 +944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86cdb5b211ed7e0468e7957e0ea8057c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  bestScore: 0
   highScore: {fileID: 427319418}
   ScoreTxt: {fileID: 1082251980}
 --- !u!4 &666765255
