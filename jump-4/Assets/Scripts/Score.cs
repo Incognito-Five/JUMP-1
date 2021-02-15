@@ -5,27 +5,39 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    int score, bestScore;
+    public Text highScore;
+    public Text ScoreTxt;
 
-    void Start()
+    private int score;
+    private int bestScore;
+
+    private void Start()
     {
-        score = 0;
+       if(PlayerPrefs.HasKey("highScore"))
+        {
+            bestScore = PlayerPrefs.GetInt("highScore");
+            highScore.text = bestScore.ToString();
+        }
+
+        ScoreTxt.text = "0";
     }
 
     // Update is called once per frame
     public void ScoreUp()
     {
         score++;
-        GetComponent<Text>().text = score.ToString();
-        UpdateBest();
+        ScoreTxt.text = score.ToString();
+
+        if (PlayerPrefs.GetInt("highScore") < score)
+        {
+            PlayerPrefs.SetInt("highScore", score);
+            bestScore = PlayerPrefs.GetInt("highScore");
+            highScore.text = bestScore.ToString();
+        }
     }
 
-    public void UpdateBest()
+    public void ResetScore()
     {
-        if (score > bestScore)
-        {
-            bestScore = score;
-            GetComponent<Text>().text = bestScore.ToString();
-        }
+        ScoreTxt.text = "0";
     }
 }

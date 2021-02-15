@@ -5,17 +5,23 @@ using UnityEngine.UI;
 
 public class CoinCount : MonoBehaviour
 {
-    int count;
+    private int coinCount;
+
+    public Text coin;
 
     void Start()
     {
-        count = 0;
+        if(PlayerPrefs.HasKey("coin"))
+        {
+            coinCount = PlayerPrefs.GetInt("coin");
+            coin.text = coinCount.ToString();
+        }
     }
 
     // Update is called once per frame
     public void CoinCounter()
     {
-        count++;
-        GetComponent<Text>().text = count.ToString();
+        coinCount++;
+        coin.text = coinCount.ToString();
     }
 }

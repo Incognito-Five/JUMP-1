@@ -9,9 +9,9 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
 
     //references
-    public Score scoreText;
     public GameObject replayBtn;
     public CoinCount coinCount;
+    public Score scoreCount;
 
     void Start()
     {
@@ -33,8 +33,7 @@ public class Player : MonoBehaviour
         if(collision.CompareTag("Column"))
         {
             print("Score up");
-            scoreText.ScoreUp();
-            scoreText.UpdateBest();
+            scoreCount.ScoreUp();
         }
 
         if(collision.CompareTag("Coin"))
@@ -57,6 +56,7 @@ public class Player : MonoBehaviour
 
     public void ReplayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("GameScene");
+        scoreCount.ResetScore();
     }
 }
