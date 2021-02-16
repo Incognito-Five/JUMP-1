@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
         if(collision.CompareTag("Coin"))
         {
             print("Coin + 1");
+            scoreCount.ScoreUp();
+            scoreCount.ScoreUp();
             coinCount.CoinCounter();
         }
     }
