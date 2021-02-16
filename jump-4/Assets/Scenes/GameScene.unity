@@ -511,6 +511,60 @@ MonoBehaviour:
   replayBtn: {fileID: 56346822}
   coinCount: {fileID: 1121009009}
   scoreCount: {fileID: 666765254}
+--- !u!1 &396466465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 396466467}
+  - component: {fileID: 396466466}
+  m_Layer: 0
+  m_Name: GameAssets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &396466466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396466465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a6ddbe7c8a6b704ea1dbac3f2d35cf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundAudioClipArray:
+  - sound: 0
+    audioClip: {fileID: 8300000, guid: 6ed48b1bade1fd042b9524df84c72117, type: 3}
+  - sound: 1
+    audioClip: {fileID: 8300000, guid: f34dc29b815620c4b80cfe1832eeb3c8, type: 3}
+  - sound: 2
+    audioClip: {fileID: 8300000, guid: 23abbd043cfcb0845aa3bcc021b390df, type: 3}
+  - sound: 3
+    audioClip: {fileID: 8300000, guid: a73b1096642ad4b41b448bfabdc7fce3, type: 3}
+  - sound: 4
+    audioClip: {fileID: 8300000, guid: 75f6793f16da5f442ae445278abbd437, type: 3}
+--- !u!4 &396466467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396466465}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &427319415
 GameObject:
   m_ObjectHideFlags: 0
