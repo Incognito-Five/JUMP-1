@@ -9,6 +9,7 @@ TagManager:
   - Column
   - Coin
   - Background
+  - Music
   layers:
   - Default
   - TransparentFX

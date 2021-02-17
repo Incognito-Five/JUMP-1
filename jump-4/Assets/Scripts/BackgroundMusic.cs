@@ -1,13 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BackgroundMusic : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static BackgroundMusic music;
     void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
+        if (music == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            music = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
-
 }
