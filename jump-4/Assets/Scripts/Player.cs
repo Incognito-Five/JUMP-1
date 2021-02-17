@@ -22,9 +22,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             rb.velocity = Vector2.up * speed;
+            SoundManager.PlaySound(SoundManager.Sound.PlayerJump);
         }
     }
 
@@ -34,14 +35,18 @@ public class Player : MonoBehaviour
         {
             print("Score up");
             scoreCount.ScoreUp();
+            SoundManager.PlaySound(SoundManager.Sound.ObstacleScore);
+
         }
 
-        if(collision.CompareTag("Coin"))
+        if (collision.CompareTag("Coin"))
         {
             print("Coin + 1");
             scoreCount.ScoreUp();
             scoreCount.ScoreUp();
             coinCount.CoinCounter();
+            SoundManager.PlaySound(SoundManager.Sound.CoinScore);
+
         }
     }
 
@@ -53,6 +58,8 @@ public class Player : MonoBehaviour
             //game over
             Time.timeScale = 0;
             replayBtn.SetActive(true);
+            SoundManager.PlaySound(SoundManager.Sound.Lose);
+
         }
     }
 
@@ -61,4 +68,5 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene("GameScene");
         scoreCount.ResetScore();
     }
+
 }
