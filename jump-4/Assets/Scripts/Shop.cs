@@ -16,7 +16,7 @@ public class Shop : MonoBehaviour
     }
     #endregion
 
-    [System.Serializable] class ShopItem
+    [System.Serializable] public class ShopItem
     {
         public Sprite Image;
         public int Price;
@@ -24,19 +24,17 @@ public class Shop : MonoBehaviour
     }
 
     public List<ShopItem> ShopItemsList;
-    [SerializeField] Text CoinsText;
 
-    GameObject ItemTemplate;
+    [SerializeField] GameObject ItemTemplate;
     GameObject g;
     [SerializeField] Transform ShopScrollView;
+    [SerializeField] GameObject ShopPanel;
     Button buyBtn;
 
     public GameObject NoCoin;
 
     void Start()
     {
-        ItemTemplate = ShopScrollView.GetChild(0).gameObject;
-
         int len = ShopItemsList.Count;
 
         for(int i = 0; i < len; i++)
@@ -45,12 +43,12 @@ public class Shop : MonoBehaviour
             g.transform.GetChild(0).GetComponent<Image>().sprite = ShopItemsList[i].Image;
             g.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = ShopItemsList[i].Price.ToString();
             buyBtn = g.transform.GetChild(2).GetComponent<Button>();
-            buyBtn.interactable = !ShopItemsList[i].isPurchased;
+            if(ShopItemsList[i].isPurchased)
+            {
+                DisableBuyButton();
+            }
             buyBtn.AddEventListener(i, OnShopItemBtnClicked);
         }
-
-        Destroy(ItemTemplate);
-
     }
 
     // Update is called once per frame
@@ -64,11 +62,11 @@ public class Shop : MonoBehaviour
 
             //disable button
             buyBtn = ShopScrollView.GetChild(itemIndex).GetChild(2).GetComponent<Button>();
-            buyBtn.interactable = false;
-            buyBtn.transform.GetChild(0).GetComponent<Text>().text = "PURCHASED";
-
+            DisableBuyButton();
 
             Game.Instance.UpdateAllCoins();
+
+            Profile.Instance.AddAvatar(ShopItemsList[itemIndex].Image);
         }
         else
         {
@@ -78,13 +76,19 @@ public class Shop : MonoBehaviour
         
     }
 
+    void DisableBuyButton()
+    {
+        buyBtn.interactable = false;
+        buyBtn.transform.GetChild(0).GetComponent<Text>().text = "PURCHASED";
+    }
+
     //open and close shop
     public void OpenShop()
     {
-        gameObject.SetActive(true);
+        ShopPanel.SetActive(true);
     }
     public void CloseShop()
     {
-        gameObject.SetActive(false);
+        ShopPanel.SetActive(false);
     }
 }
