@@ -1544,7 +1544,7 @@ MonoBehaviour:
   allCoins:
   - {fileID: 2041478978}
   - {fileID: 1175021171}
-  Coins: 1000
+  Coins: 200
 --- !u!4 &1239398813
 Transform:
   m_ObjectHideFlags: 0
