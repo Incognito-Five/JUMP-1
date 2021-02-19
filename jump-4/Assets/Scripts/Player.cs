@@ -69,4 +69,8 @@ public class Player : MonoBehaviour
         scoreCount.ResetScore();
     }
 
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
 }
