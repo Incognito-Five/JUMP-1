@@ -20,4 +20,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Upgrades");
     }
+
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
 }
