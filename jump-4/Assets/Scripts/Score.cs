@@ -20,6 +20,7 @@ public class Score : MonoBehaviour
         }
 
         ScoreTxt.text = "0";
+
     }
 
     // Update is called once per frame
@@ -40,4 +41,5 @@ public class Score : MonoBehaviour
     {
         ScoreTxt.text = "0";
     }
+    
 }
