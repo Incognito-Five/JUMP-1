@@ -28,8 +28,5 @@ public class CoinCount : MonoBehaviour
         coin.text = coinCount.ToString();
 
     }
-    public void ResetScore()
-    {
-        coin.text = "0";
-    }
+
 }
